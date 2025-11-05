@@ -1,0 +1,45 @@
+# HOW TO RUN: Track Experiments using MLflow
+
+--------------------------------------
+SETUP
+--------------------------------------
+Install required libraries:
+   pip install -r requirements.txt
+
+Start MLflow UI server (in a new terminal):
+   mlflow ui
+
+   OR to specify port:
+   mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000
+
+   Then open:
+   http://127.0.0.1:5000
+
+--------------------------------------
+OPTION 1: Wine Quality Dataset
+--------------------------------------
+Make sure "winequality-red.csv" file path is correct inside track_experiments.py
+Run:
+   python track_experiments.py
+View experiment name: "WineQualityExperiment" in MLflow UI
+
+--------------------------------------
+OPTION 2: Toy Iris Dataset (no file needed)
+--------------------------------------
+Simply run:
+   python track_experiments_toy.py
+View experiment name: "IrisExperiment" in MLflow UI
+
+--------------------------------------
+VIEW RESULTS
+--------------------------------------
+In the MLflow web interface, check:
+Logged parameters (n_estimators, max_depth)
+Accuracy metrics
+Model artifacts (saved model)
+Experiment comparison between different runs
+
+--------------------------------------
+DONE!
+--------------------------------------
+You’ve successfully tracked experiments using MLflow with both a custom dataset and a built-in toy dataset.

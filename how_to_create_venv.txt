@@ -1,0 +1,87 @@
+# HOW TO CREATE AND USE A VIRTUAL ENVIRONMENT (.venv)
+# Works on Windows and Visual Studio Code
+
+--------------------------------------
+SUMMARY - skip rest of the content if no queries
+--------------------------------------
+1. python -m venv .venv
+2. .venv\Scripts\activate
+3. pip install -r requirements.txt
+4. python your_file.py
+5. deactivate (when done)
+
+--------------------------------------
+STEP 1: OPEN YOUR PROJECT FOLDER IN VS CODE
+--------------------------------------
+Example:
+C:\Users\<YourName>\Desktop\Sem5_MLOPS\
+
+(You can also open the folder from the terminal using "cd" commands.)
+
+--------------------------------------
+STEP 2: CREATE THE VIRTUAL ENVIRONMENT
+--------------------------------------
+In the VS Code terminal, run:
+
+python -m venv .venv
+
+This creates a folder named ".venv" in your project directory.
+It contains its own Python and pip installation.
+
+--------------------------------------
+STEP 3: ACTIVATE THE ENVIRONMENT
+--------------------------------------
+Run this command in the terminal:
+
+.venv\Scripts\activate
+
+You should now see:
+(.venv) C:\Users\<YourName>\Desktop\Sem5_MLOPS>
+
+The "(.venv)" prefix means your environment is active.
+
+--------------------------------------
+STEP 4: INSTALL PROJECT DEPENDENCIES
+--------------------------------------
+Now that your environment is active, install all required libraries:
+
+pip install -r requirements.txt
+
+This installs all packages listed in your "requirements.txt" file
+into your .venv (not system-wide).
+
+--------------------------------------
+STEP 5: SET PYTHON INTERPRETER IN VS CODE
+--------------------------------------
+Press Ctrl + Shift + P in VS Code
+Type: "Python: Select Interpreter"
+Choose the one ending with ".venv"
+
+Example:
+Python 3.12.4 ('project_name': venv)
+
+This tells VS Code to use your project’s local environment,
+so all imports like wandb, mlflow, or prefect will be recognized.
+
+--------------------------------------
+STEP 6: RUN YOUR PYTHON SCRIPT
+--------------------------------------
+Once activated, simply run:
+
+python <your_script_name>.py
+
+Example:
+python track_experiments_wandb.py
+
+--------------------------------------
+STEP 7: DEACTIVATE WHEN DONE
+--------------------------------------
+When you’re finished, you can deactivate the environment by typing:
+
+deactivate
+
+--------------------------------------
+YOU’RE DONE!
+--------------------------------------
+Your project now has an isolated Python environment (.venv)
+and VS Code will automatically recognize your installed packages.

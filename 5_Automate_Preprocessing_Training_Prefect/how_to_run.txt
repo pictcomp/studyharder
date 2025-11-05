@@ -1,0 +1,64 @@
+---
+# HOW TO RUN: Automate Preprocessing and Training using Prefect
+---
+
+SETUP
+
+Install dependencies:
+
+pip install -r requirements.txt
+
+Start Prefect Server (for dashboard & logs):
+
+prefect server start
+
+This launches the **Prefect UI** at → [http://127.0.0.1:4200](http://127.0.0.1:4200)
+Keep this terminal open — it must keep running in the background.
+
+In a NEW TERMINAL, activate your virtual environment and proceed with the next steps.
+---
+
+## OPTION 1: Wine Quality Dataset (Custom)
+
+Verify the CSV path in `automate_prefect.py`:
+
+FILEPATH/WineQT.csv
+
+Run the pipeline:
+
+python automate_prefect.py
+
+Outputs:
+Prefect logs showing each task (`load_data`, `normalize_data`, `train_model`, `evaluate_model`)
+Model accuracy printed in the terminal
+Real-time visualization of the flow in the Prefect UI ([http://127.0.0.1:4200](http://127.0.0.1:4200))
+
+---
+
+## OPTION 2: Toy Iris Dataset (no file needed)
+
+Run:
+
+python automate_prefect_toy.py
+
+Outputs:
+All Prefect tasks executed automatically
+Accuracy displayed in the terminal
+Optional logs and task progress visible in the dashboard
+
+---
+
+## WHAT YOU SEE IN PREFECT UI
+
+* Flow name (e.g., `WineQuality_Pipeline` or `Iris_Pipeline`)
+* Task boxes for each step (Load → Normalize → Train → Evaluate)
+* Real-time execution status (Success / Failure)
+* Task logs, duration, and outputs
+
+---
+
+## **DONE!**
+
+You’ve successfully automated ML preprocessing and training pipelines using **Prefect** — now with a persistent dashboard for real-time tracking and monitoring. 🚀
+
+---

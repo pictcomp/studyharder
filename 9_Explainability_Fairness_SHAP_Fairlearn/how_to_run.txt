@@ -1,0 +1,46 @@
+# HOW TO RUN: Apply Explainability using SHAP or LIME and Audit Model Fairness
+
+--------------------------------------
+SETUP
+--------------------------------------
+Install dependencies:
+   pip install -r requirements.txt
+
+--------------------------------------
+OPTION 1: Custom Dataset (Custom)
+--------------------------------------
+Ensure the CSV file path and column names in explainability_fairness_generic.py are correctly set:
+CSV_PATH = "sample.csv"        # path to your dataset  
+TARGET = "gender"              # target column  
+SENSITIVE_FEATURE = "gender"   # sensitive attribute  
+Run the script:
+python explainability_fairness_generic.py
+Outputs (saved in your current folder):
+model_output_shap_summary.png — SHAP global feature importance
+model_output_shap_waterfall.png — SHAP local explanation (sample 0)
+model_output_lime_explanation.html — LIME local explanation (HTML)
+model_output_lime_plot.png — LIME visualization plot
+model_output_fairness.png — Fairness metrics by sensitive feature
+
+--------------------------------------
+OPTION 2: Toy Iris Dataset (no file needed)
+--------------------------------------
+Run:
+   python explainability_fairness_toy.py
+Outputs:
+   shap_summary_iris.png  
+   lime_explanation_iris.html  
+   fairness_audit_iris.png  
+
+--------------------------------------
+WHAT YOU’LL SEE
+--------------------------------------
+- **SHAP** → Feature importance and contribution analysis
+- **LIME** → Local explanation for a single prediction
+- **Fairlearn** → Bias analysis between "male" and "female" synthetic groups
+
+--------------------------------------
+DONE!
+--------------------------------------
+You’ve successfully implemented SHAP and LIME explainability
+and fairness auditing for both a real and toy dataset.

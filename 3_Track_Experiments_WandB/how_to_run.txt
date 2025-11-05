@@ -1,0 +1,52 @@
+# HOW TO RUN: Track Experiments using Weights & Biases (W&B)
+
+--------------------------------------
+SETUP
+--------------------------------------
+Install required libraries:
+   pip install -r requirements.txt
+
+Log in to your W&B account:
+   wandb login
+
+   Copy your API key from: https://wandb.ai/authorize
+
+--------------------------------------
+OPTION 1: Wine Dataset
+--------------------------------------
+Make sure the "winequality-red.csv" file path is correct in the script.
+Run:
+   python track_experiments_wandb.py
+Go to your W&B Dashboard:
+   https://wandb.ai/<your-username>/WineQualityTracking
+
+You’ll see:
+Experiment logs
+Parameters (n_estimators, max_depth)
+Accuracy score
+Model artifact (rf_model.joblib)
+
+--------------------------------------
+OPTION 2: Toy Iris Dataset (no file needed)
+--------------------------------------
+Run:
+   python track_experiments_wandb_toy.py
+Go to your W&B Dashboard:
+   https://wandb.ai/<your-username>/IrisTracking
+
+You’ll see:
+Accuracy logs
+Run comparisons
+Configs and model version tracking
+
+--------------------------------------
+VIEWING EXPERIMENTS
+--------------------------------------
+- Each run is automatically versioned and logged in your W&B project.
+- You can compare runs, visualize metrics, and download models.
+
+--------------------------------------
+DONE!
+--------------------------------------
+You’ve successfully tracked experiments using Weights & Biases with both
+a real dataset and a built-in toy dataset.

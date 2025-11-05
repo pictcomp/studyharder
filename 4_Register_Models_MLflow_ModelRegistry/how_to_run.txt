@@ -1,0 +1,26 @@
+# HOW TO RUN: Register and Manage Trained Models using MLflow Model Registry
+
+Install dependencies:
+   pip install -r requirements.txt
+
+Start the MLflow tracking and model registry server:
+   (Run this in a new terminal and keep it open)
+
+   mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000
+
+   This starts the MLflow UI and Model Registry locally.
+
+Run the training and registration script: (Custom or Toy)
+   python register_model_mlflow.py
+
+Open MLflow in your browser:
+   http://127.0.0.1:5000
+
+   Navigate to:
+   - **Experiments tab** → See logged model and metrics
+   - **Models tab** → See “MyModelRegistry” with its registered versions
+
+Done! You’ve successfully registered a trained model in MLflow Model Registry.
+
+Tip:
+Each time you rerun the script, a new **version** of the model will appear in the Model Registry.
