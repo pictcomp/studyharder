@@ -1,50 +1,26 @@
-# HOW TO RUN: Apply Explainability using SHAP or LIME and Audit Model Fairness
+# HOW TO RUN: Register and Manage Trained Models using MLflow Model Registry
 
---------------------------------------
-🔹 SETUP
---------------------------------------
-1️⃣ Install dependencies:
+Install dependencies:
    pip install -r requirements.txt
 
---------------------------------------
-🔹 OPTION 1: Custom Dataset (Custom)
---------------------------------------
-1️⃣ Ensure the CSV file path and column names in explainability_fairness_generic.py are correctly set:
-CSV_PATH = "sample.csv"        # path to your dataset  
-TARGET = "gender"              # target column  
-SENSITIVE_FEATURE = "gender"   # sensitive attribute  
-2️⃣ Run the script:
-python explainability_fairness_generic.py
-3️⃣ Outputs (saved in your current folder):
-✅ model_output_shap_summary.png — SHAP global feature importance
-✅ model_output_shap_waterfall.png — SHAP local explanation (sample 0)
-✅ model_output_lime_explanation.html — LIME local explanation (HTML)
-✅ model_output_lime_plot.png — LIME visualization plot
-✅ model_output_fairness.png — Fairness metrics by sensitive feature
+Start the MLflow tracking and model registry server:
+   (Run this in a new terminal and keep it open)
 
---------------------------------------
-🔹 OPTION 2: Toy Iris Dataset (no file needed)
---------------------------------------
-1️⃣ Run:
-   python explainability_fairness_toy.py
-2️⃣ Outputs:
-   ✅ shap_summary_iris.png  
-   ✅ lime_explanation_iris.html  
-   ✅ fairness_audit_iris.png  
+   mlflow server --backend-store-uri sqlite:///mlflow.db --default-artifact-root ./mlruns --host 127.0.0.1 --port 5000
 
-Key Note:
+   This starts the MLflow UI and Model Registry locally.
 
-“When SHAP plots appear, you must close the window manually — it then continues with LIME and Fairlearn.”
+Run the training and registration script: (Custom or Toy)
+   python register_model_mlflow.py
 
---------------------------------------
-🔹 WHAT YOU’LL SEE
---------------------------------------
-- **SHAP** → Feature importance and contribution analysis
-- **LIME** → Local explanation for a single prediction
-- **Fairlearn** → Bias analysis between "male" and "female" synthetic groups
+Open MLflow in your browser:
+   http://127.0.0.1:5000
 
---------------------------------------
-✅ DONE!
---------------------------------------
-You’ve successfully implemented SHAP and LIME explainability
-and fairness auditing for both a real and toy dataset.
+   Navigate to:
+   - **Experiments tab** → See logged model and metrics
+   - **Models tab** → See “MyModelRegistry” with its registered versions
+
+Done! You’ve successfully registered a trained model in MLflow Model Registry.
+
+Tip:
+Each time you rerun the script, a new **version** of the model will appear in the Model Registry.
